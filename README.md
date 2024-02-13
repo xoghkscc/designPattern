@@ -6,6 +6,33 @@
 #### 정의: 팩토리 메소드 패턴에서는 객체를 생성하기 위한 인터페이스를 정의하는데, 어떤 클래스의 인스턴스를 만들지는 서브클래스에서 결정하게 만들게 하는 패턴
 
 ```java
+public abstract class IronMan {
+
+    String ironManName;
+
+    public void 부품준비() {
+        System.out.println(ironManName + "의 머리를 가져옵니다.");
+        System.out.println(ironManName + "의 몸통을 가져옵니다.");
+        System.out.println(ironManName + "의 다리를 가져옵니다.");
+        System.out.println(ironManName + "의 팔을 가져옵니다.");
+    }
+
+    public void 조립() {
+        System.out.println(ironManName + "의 몸통과 다리를 조립합니다.");
+        System.out.println(ironManName + "의 몸통과 팔을 조립합니다.");
+        System.out.println(ironManName + "의 몸통과 머리를 조립합니다.");
+    }
+
+    public void 자비스삽입() {
+        System.out.println("자비스 소프트웨어를 설치하였습니다.");
+    }
+
+    public void 전원On() {
+        System.out.println("전원 ON 하였습니다.");
+        System.out.println(ironManName + "이 눈을 떴습니다!!");
+    }
+}
+
 //각 나라에 맞는 IronManLab을 구현할 수 있도록 추상 클래스로 만든다.
 public abstract class IronManLab {
     
@@ -30,7 +57,7 @@ public abstract class IronManLab {
         /**
          * 이 부분은 변경 되지 않아야 한다. 이 부분은 변하지 않는 공통적인 부
         **/
-        ironMan.준비();
+        ironMan.부품준비();
         ironMan.조립();
         ironMan.자비스설치();
         ironMan.전원ON();
